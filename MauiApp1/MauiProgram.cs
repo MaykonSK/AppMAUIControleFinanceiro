@@ -1,5 +1,6 @@
 ﻿using LiteDB;
 using MauiApp1.DAO;
+using MauiApp1.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -17,10 +18,13 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+			})
+			.Configurations();
+			//.RegisterViews();
+
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();
@@ -37,8 +41,16 @@ public static class MauiProgram
 
 		mauiAppBuilder.Services.AddTransient<ITransacaoDAO, TransacaoDAO>();
 
-
         return mauiAppBuilder;
 
     }
+
+    //public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
+    //{
+    //    mauiAppBuilder.Services.AddTransient<TransacaoEdit>();
+    //    mauiAppBuilder.Services.AddTransient<TransacaoAdd>();
+    //    mauiAppBuilder.Services.AddTransient<TransacaoList>();
+    //    return mauiAppBuilder;
+
+    //}
 }

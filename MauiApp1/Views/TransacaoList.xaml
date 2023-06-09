@@ -4,11 +4,37 @@
              x:Class="MauiApp1.Views.TransacaoList"
              Title="Transações">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-        <Button Text="+" Clicked="OnButtonClickedAdd" />
+        <Border Margin="15" StrokeShape="RoundRectangle 10">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnButtonClickedEdit" />
+            </Border.GestureRecognizers>
+            <Grid Padding="15" ColumnDefinitions="50, *, Auto">
+                <Border StrokeShape="RoundRectangle 100" BackgroundColor="Transparent">
+                    <Label Text="S" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Border>
+                <VerticalStackLayout Grid.Column="1" Margin="10,0">
+                    <Label Text="Salario" />
+                    <Label Text="01/01/2023" />
+                </VerticalStackLayout>
+                <Label Grid.Column="2" Text="R$300,00" VerticalOptions="Center"/>
+            </Grid>
+        </Border>
+
+
+        <Border Margin="10,10" Padding="30,10" StrokeShape="RoundRectangle 40" BackgroundColor="#164C8B">
+            <Grid ColumnDefinitions="*, 80" RowDefinitions="Auto, Auto, 30, Auto, Auto" >
+                <Label Text="Saldo" TextColor="White" FontSize="18"/>
+                <Label Text="R$300,00" TextColor="White" FontSize="32" FontAttributes="Bold" Grid.Row="1" />
+                <Button Margin="10,10" TextColor="Black" BackgroundColor="White" Text="+" Clicked="OnButtonClickedAdd" Grid.Column="1" Grid.RowSpan="2" CornerRadius="50" FontSize="30" />
+
+                <Label Text="Receitas" FontSize="8" TextColor="White" Grid.Row="3" />
+                <Label Text="R$300,00" FontSize="12" TextColor="White" Grid.Row="4" />
+
+                <Label Text="Despesas" FontSize="8" TextColor="White" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="R$300,00" FontSize="12" TextColor="White" Grid.Row="4" Grid.Column="1"/>
+            </Grid>
+        </Border>
+        
     </VerticalStackLayout>
 </ContentPage>

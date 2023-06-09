@@ -2,23 +2,50 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.Views.TransacaoAdd"
-             Title="TransacaoAdd">
+             >
 
-    <VerticalStackLayout>
-        <Border>
+    <VerticalStackLayout Spacing="10">
+        <Label x:Name="labelError" IsVisible="false" TextColor="Red" />
+        <Border BackgroundColor="#1B5BA5" Margin="15" Padding="15" StrokeShape="RoundRectangle 30">
             <Grid RowDefinitions="Auto" ColumnDefinitions="*, 30">
                 <Label 
-            Text="Novo"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-            Grid.Row="0"
-            Grid.Column="0"/>
+                Text="Novo"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                Grid.Row="0"
+                TextColor="White"
+                Grid.Column="0"/>
 
-                <Label Text="X" HorizontalOptions="Center" 
-               Grid.Row="0"
-               Grid.Column="1"/>
+                <Label Text="X" HorizontalOptions="Center"
+                Grid.Row="0"
+                TextColor="White"
+                Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLabelTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
             </Grid>
         </Border>
+
+        <Grid Margin="30, 0" ColumnDefinitions="*,*">
+            <RadioButton IsChecked="True" x:Name="receita" Content="Receita" Grid.Column="0" />
+            <RadioButton Content="Despesa"  x:Name="despesa" Grid.Column="1" HorizontalOptions="End" />
+        </Grid>
+
+        <Border Margin="10,5" Padding="5" StrokeShape="RoundRectangle 10">
+            <Entry Placeholder="Nome" x:Name="nome" />
+        </Border>
+
+        <Border Margin="10,5" Padding="5" StrokeShape="RoundRectangle 10">
+            <DatePicker x:Name="data" />
+        </Border>
+
+        <Border Margin="10,5" Padding="5" StrokeShape="RoundRectangle 10">
+            <Entry Placeholder="Valor" x:Name="valor" Keyboard="Numeric" />
+        </Border>
+
+        <Button Text="Salvar" Clicked="Salvar" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" CornerRadius="30" BorderColor="Transparent" TextColor="White" />
+
     </VerticalStackLayout>
 
 </ContentPage>

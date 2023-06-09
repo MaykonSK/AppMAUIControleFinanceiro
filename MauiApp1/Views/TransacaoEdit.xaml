@@ -1,12 +1,51 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="True"
              x:Class="MauiApp1.Views.TransacaoEdit"
-             Title="TransacaoEdit">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             >
+    <VerticalStackLayout Spacing="10">
+        <Border BackgroundColor="#1B5BA5" Margin="15" Padding="15" StrokeShape="RoundRectangle 30">
+            <Grid RowDefinitions="Auto" ColumnDefinitions="*, 30">
+                <Label 
+                Text="Atualizar"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                Grid.Row="0"
+                TextColor="White"
+                Grid.Column="0"/>
+
+                <Label Text="X" HorizontalOptions="Center" 
+                Grid.Row="0"
+                TextColor="White"
+                Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </Border>
+
+        <Grid Margin="30, 0" ColumnDefinitions="*,*">
+            <RadioButton IsChecked="True" Content="Receita" Grid.Column="0" />
+            <RadioButton Content="Despesa" Grid.Column="1" HorizontalOptions="End" />
+        </Grid>
+
+        <Border Margin="10,5" Padding="5" StrokeShape="RoundRectangle 10">
+            <Entry Placeholder="Nome" />
+        </Border>
+
+        <Border Margin="10,5" Padding="5" StrokeShape="RoundRectangle 10">
+            <DatePicker />
+        </Border>
+
+        <Border Margin="10,5" Padding="5" StrokeShape="RoundRectangle 10">
+            <Entry Placeholder="Valor" />
+        </Border>
+        
+        
+
+        <Button Text="Salvar" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" CornerRadius="30" BorderColor="Transparent" TextColor="White" />
+
     </VerticalStackLayout>
 </ContentPage>

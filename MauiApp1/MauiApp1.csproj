@@ -49,12 +49,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LiteDB" Version="5.0.16" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	  <Compile Remove="Services\TransacaoService.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Services\" />
+		<PackageReference Include="LiteDB" Version="5.0.16" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -67,6 +67,10 @@
 	  <MauiXaml Update="Views\TransacaoList.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Services\" />
 	</ItemGroup>
 
 </Project>
