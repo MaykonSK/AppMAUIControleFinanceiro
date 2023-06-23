@@ -33,18 +33,18 @@
         </Grid>
 
         <Border Margin="10,5" Padding="5" StrokeShape="RoundRectangle 10">
-            <Entry Placeholder="Nome" x:Name="nome" />
+            <Entry Placeholder="Nome" x:Name="nome" Text="{Binding nome}" />
         </Border>
 
         <Border Margin="10,5" Padding="5" StrokeShape="RoundRectangle 10">
-            <DatePicker x:Name="data" />
+            <DatePicker x:Name="data" Date="{Binding data}" />
         </Border>
 
         <Border Margin="10,5" Padding="5" StrokeShape="RoundRectangle 10">
-            <Entry Placeholder="Valor" x:Name="valor" Keyboard="Numeric" />
+            <Entry Placeholder="Valor" x:Name="valor" Keyboard="Numeric" Text="{Binding valor}" />
         </Border>
 
-        <Button Text="Salvar" Clicked="Salvar" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" CornerRadius="30" BorderColor="Transparent" TextColor="White" />
+        <Button Text="Salvar" Command="{Binding Salvar}" HeightRequest="60" WidthRequest="200" HorizontalOptions="Center" CornerRadius="30" BorderColor="Transparent" TextColor="White" />
 
     </VerticalStackLayout>
 

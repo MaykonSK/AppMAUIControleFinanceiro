@@ -1,7 +1,11 @@
+using MauiApp1.ViewModel;
+
 namespace MauiApp1.Views;
 
 public partial class TransacaoList : ContentPage
 {
+    private readonly TransacaoAddViewModel _viewModel;
+
     public List<string> items { get; set; }
 
     public TransacaoList()
@@ -20,12 +24,10 @@ public partial class TransacaoList : ContentPage
 
 	public void OnButtonClickedAdd(object sender, EventArgs args)
 	{
-        //Navigation.PushModalAsync(new TransacaoAdd());
-        Navigation.PushAsync(new TransacaoAdd());
+        Navigation.PushModalAsync(new TransacaoAdd());
     }
     public void OnButtonClickedEdit(object sender, TappedEventArgs e)
     {
-        //Navigation.PushModalAsync(new TransacaoAdd());
         Navigation.PushAsync(new TransacaoEdit());
     }
 }
