@@ -9,10 +9,13 @@ namespace MauiApp1.Views;
 public partial class TransacaoAdd : ContentPage
 {
     TransacaoAddViewModel _transacaoAddViewModel;
-    public TransacaoAdd()
+    ITransacaoDAO _transacaoDAO;
+
+    public TransacaoAdd(ITransacaoDAO transacaoDAO)
 	{
         Title = "Criar Transação";
-        _transacaoAddViewModel = new TransacaoAddViewModel(new TransacaoDAO());
+        _transacaoDAO = transacaoDAO;
+        _transacaoAddViewModel = new TransacaoAddViewModel(transacaoDAO);
         BindingContext = _transacaoAddViewModel;
         InitializeComponent();
     }

@@ -1,14 +1,18 @@
-﻿using MauiApp1.Views;
+﻿using MauiApp1.DAO;
+using MauiApp1.Views;
 
 namespace MauiApp1;
 
 public partial class App : Application
 {
-    public App()
+    private readonly ITransacaoDAO _transacaoDAO;
+
+    public App(ITransacaoDAO transacaoDAO)
     {
+        _transacaoDAO = transacaoDAO;
         InitializeComponent();
 
-        MainPage = new NavigationPage(new TransacaoList());
+        MainPage = new NavigationPage(new TransacaoList(_transacaoDAO));
     }
 
 }

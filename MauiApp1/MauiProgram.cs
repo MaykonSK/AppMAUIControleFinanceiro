@@ -49,7 +49,6 @@ public static class MauiProgram
 	public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
 	{
 		mauiAppBuilder.Services.AddTransient<TransacaoAddViewModel>();
-        mauiAppBuilder.Services.AddSingleton<ITransacaoDAO, TransacaoDAO>();
         return mauiAppBuilder;
 
 	}

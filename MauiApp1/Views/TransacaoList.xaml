@@ -5,21 +5,32 @@
              Title="Transações">
     <VerticalStackLayout>
 
-        <Border Margin="15" StrokeShape="RoundRectangle 10">
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnButtonClickedEdit" />
-            </Border.GestureRecognizers>
-            <Grid Padding="15" ColumnDefinitions="50, *, Auto">
-                <Border StrokeShape="RoundRectangle 100" BackgroundColor="Transparent">
-                    <Label Text="S" HorizontalOptions="Center" VerticalOptions="Center"/>
-                </Border>
-                <VerticalStackLayout Grid.Column="1" Margin="10,0">
-                    <Label Text="Salario" />
-                    <Label Text="01/01/2023" />
-                </VerticalStackLayout>
-                <Label Grid.Column="2" Text="R$300,00" VerticalOptions="Center"/>
-            </Grid>
-        </Border>
+        <CollectionView x:Name="TransacoesList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="10,10,10,0" StrokeShape="RoundRectangle 10">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnButtonClickedEdit" />
+                        </Border.GestureRecognizers>
+
+                        <Grid Padding="15" ColumnDefinitions="50, *, Auto">
+                            <Border StrokeShape="RoundRectangle 100" BackgroundColor="Transparent">
+                                <Label Text="S" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Margin="10,0">
+                                <Label Text="{Binding Nome}" />
+                                <Label Text="{Binding Data, StringFormat='{0:dd/MM/yyyy}'}" />
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2" Text="{Binding Valor, StringFormat='{0:C}'}" VerticalOptions="Center"/>
+                        </Grid>
+
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+
+        
 
 
         <Border Margin="10,10" Padding="30,10" StrokeShape="RoundRectangle 40" BackgroundColor="#164C8B">
